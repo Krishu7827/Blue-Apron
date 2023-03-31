@@ -3,6 +3,7 @@ let Password = document.getElementById("Password")
 let submitButton = document.getElementById("submit")
 let logindiv=document.querySelector(".login-Success")
 
+
 submitButton.addEventListener("click", (el) => {
 
     let payload = {
@@ -33,11 +34,42 @@ function render(res){
 
     if(res.accesToken){
 
-        logindiv.innerHTML=`<h4 style="font-weight: 700; color:green; text-align:center; margin-top:50px;">Login Success!!</h4>`
+
+
+        logindiv.innerHTML=`<div class="popup-container">
+        <div class="popup">
+          <div class="popup-content">
+            <h2 style=" font-weight: 600; color:green;  font-family:'Poppins', sans-serif ;">Login Success!</h2>
+            <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">Welcome to Blue Apron.</p>
+            <button style=" font-weight: 500;   font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
+          </div>
+        </div>
+      </div>`
+
+      closebtn=document.querySelector(".popup button")
+    
+      closebtn.addEventListener("click",()=>{
+          logindiv.innerHTML=""
+      })
 
     }else{
 
-        logindiv.innerHTML=`<h4 style=" font-weight: 700; color:red; text-align:center; margin-top:50px;  ">Wrong Credential!!</h4>`
+        logindiv.innerHTML=`<div class="popup-container">
+        <div class="popup">
+          <div class="popup-content">
+            <h2 style=" font-weight: 600; color:red;  font-family:'Poppins', sans-serif ;">Error!</h2>
+            <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">Wrong Credentials.</p>
+            <button style=" font-weight: 500;   font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
+          </div>
+        </div>
+      </div>`
+
+      closebtn=document.querySelector(".popup button")
+    
+      closebtn.addEventListener("click",()=>{
+          logindiv.innerHTML=""
+      })
+
 
     }
 }

@@ -6,12 +6,12 @@ let Otp = document.getElementById("OTP")
 let RegisterButton = document.getElementById("RegisterButton")
 let result = document.querySelector(".result")
 let otpVerifybutton=document.getElementById("OtpVerify")
-
+let closebtn;
 
 
 RegisterButton.addEventListener("click", (el) => {
     console.log(Password.value,repeatPassword.value)
-    if (Password.value == repeatPassword.value) {
+    if (Password.value == repeatPassword.value && Name.value) {
 
         let payload = {
             name: Name.value,
@@ -19,7 +19,25 @@ RegisterButton.addEventListener("click", (el) => {
             password: Password.value
 
         }
+
+        result.innerHTML = `<div class="popup-container">
+        <div class="popup">
+          <div class="popup-content">
+            <h2 style=" font-weight: 600; color:green;  font-family:'Poppins', sans-serif ;">Wait...!</h2>
+            <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">It may be take time a for OTP.</p>
+            <button style=" font-weight: 500;   font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
+          </div>
+        </div>
+      </div>`
+
+      closebtn=document.querySelector(".popup button")
+    
+      closebtn.addEventListener("click",()=>{
+          result.innerHTML=""
+      })
+
         console.log(JSON.stringify(payload))
+
 
         fetch("http://localhost:469/users/verifyEmail", {
             method: "POST",
@@ -44,7 +62,21 @@ RegisterButton.addEventListener("click", (el) => {
 
     } else {
 
-        result.innerHTML = `<h4 style=" font-weight: 1000; color:red; text-align:center; margin-top:50px;  ">Password are not same.</h4>`
+        result.innerHTML = `<div class="popup-container">
+        <div class="popup">
+          <div class="popup-content">
+            <h2 style=" font-weight: 600; color:red;  font-family:'Poppins', sans-serif ;">Error!</h2>
+            <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">Password are not Same.</p>
+            <button style=" font-weight: 500;   font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
+          </div>
+        </div>
+      </div>`
+
+      closebtn=document.querySelector(".popup button")
+    
+      closebtn.addEventListener("click",()=>{
+          result.innerHTML=""
+      })
 
     }
 
@@ -53,19 +85,61 @@ RegisterButton.addEventListener("click", (el) => {
 
 function render(res) {
 
-    result.innerHTML = `<h4 style=" font-weight: 1000; color:green; text-align:center; margin-top:50px;  ">it maybe take time, wait for while.</h4>`
+   
 
     if (res.message == "You are already exist User") {
 
-        result.innerHTML = `<h4 style=" font-weight: 1000; color:red; text-align:center; margin-top:50px;  ">You are already Our User, do login direct.</h4>`
+        result.innerHTML = `<div class="popup-container">
+        <div class="popup">
+          <div class="popup-content">
+            <h2 style=" font-weight: 600; color:red;  font-family:'Poppins', sans-serif ;">Error!</h2>
+            <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">You are already exist User.</p>
+            <button style=" font-weight: 500;  font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
+          </div>
+        </div>
+      </div>`
+
+      closebtn=document.querySelector(".popup button")
+    
+      closebtn.addEventListener("click",()=>{
+          result.innerHTML=""
+      })
 
     } else if (res.message == "Email is wrong") {
 
-        result.innerHTML = `<h4 style=" font-weight: 1000; color:red; text-align:center; margin-top:50px;  ">Email is wrong.</h4>`
+        result.innerHTML = `<div class="popup-container">
+        <div class="popup">
+          <div class="popup-content">
+            <h2 style=" font-weight: 600; color:red;  font-family:'Poppins', sans-serif ;">Error!</h2>
+            <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">Email is Wrong.</p>
+            <button style=" font-weight: 500; font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
+          </div>
+        </div>
+      </div>`
+
+      closebtn=document.querySelector(".popup button")
+    
+      closebtn.addEventListener("click",()=>{
+          result.innerHTML=""
+      })
 
     } else if (res["message"] == "OTP has Sent Succesfully!!") {
 
-        result.innerHTML = `<h4 style=" font-weight: 1000; color:green; text-align:center; margin-top:50px;  ">OTP has sent on your email(${Email.value}).</h4>`
+        result.innerHTML = `<div class="popup-container">
+        <div class="popup">
+          <div class="popup-content">
+            <h2 style=" font-weight: 600; color:green;  font-family:'Poppins', sans-serif ;">OTP Sent Successfully!</h2>
+            <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">OTP has sent on Your Email(${Email.value}).</p>
+            <button style=" font-weight: 500;  font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
+          </div>
+        </div>
+      </div>`
+
+      closebtn=document.querySelector(".popup button")
+    
+      closebtn.addEventListener("click",()=>{
+          result.innerHTML=""
+      })
 
     }
 }
@@ -90,15 +164,51 @@ otpVerifybutton.addEventListener("click",()=>{
 
                 if(res["message"]== "User Registered!!"){
                 
-                    result.innerHTML = `<h4 style=" font-weight: 1000; color:green; text-align:center; margin-top:50px;  ">Your Are Registered Now, ${Name.value}.</h4>`
+                    result.innerHTML = `<div class="popup-container">
+                    <div class="popup">
+                      <div class="popup-content">
+                        <h2 style=" font-weight: 600; color:green;  font-family:'Poppins', sans-serif ;">Registration Successfully!</h2>
+                        <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">You are registered Now, ${Name.value}.</p>
+                        <button style=" font-weight: 500;  font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
+                      </div>
+                    </div>
+                  </div>`
 
                 }else if(res["message"]=="OTP is Wrong, Please try again"){
 
-                    result.innerHTML = `<h4 style=" font-weight: 1000; color:red; text-align:center; margin-top:50px;  ">OTP is Wrong, Please try again.</h4>`
+                    result.innerHTML = `<div class="popup-container">
+                    <div class="popup">
+                      <div class="popup-content">
+                        <h2 style=" font-weight: 600; color:red;  font-family:'Poppins', sans-serif ;">Error!</h2>
+                        <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">OTP is Wrong.</p>
+                        <button style=" font-weight: 500;  font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
+                      </div>
+                    </div>
+                  </div>`
+
+                  closebtn=document.querySelector(".popup button")
+    
+                  closebtn.addEventListener("click",()=>{
+                      result.innerHTML=""
+                  })
 
                 }else{
 
-                    result.innerHTML = `<h4 style=" font-weight: 1000; color:red; text-align:center; margin-top:50px;  ">Something is Wrong...</h4>`
+                    result.innerHTML = `<div class="popup-container">
+                    <div class="popup">
+                      <div class="popup-content">
+                        <h2 style=" font-weight: 600; color:red;  font-family:'Poppins', sans-serif ;">Error!</h2>
+                        <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">Something is wrong,Please try again later.</p>
+                        <button style=" font-weight: 500;  font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
+                      </div>
+                    </div>
+                  </div>`
+
+                  closebtn=document.querySelector(".popup button")
+    
+                  closebtn.addEventListener("click",()=>{
+                      result.innerHTML=""
+                  })
 
                 }
                
@@ -111,7 +221,21 @@ otpVerifybutton.addEventListener("click",()=>{
 
     }else{
 
-        result.innerHTML = `<h4 style=" font-weight: 1000; color:red; text-align:center; margin-top:50px;  ">Please Enter Your OTP.</h4>`
+        result.innerHTML = `<div class="popup-container">
+        <div class="popup">
+          <div class="popup-content">
+            <h2 style=" font-weight: 600; color:red;  font-family:'Poppins', sans-serif ;">Error!</h2>
+            <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">Please Enter OTP.</p>
+            <button style=" font-weight: 500;  font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
+          </div>
+        </div>
+      </div>`
+
+      closebtn=document.querySelector(".popup button")
+    
+      closebtn.addEventListener("click",()=>{
+          result.innerHTML=""
+      })
 
     }
 })
