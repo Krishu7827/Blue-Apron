@@ -12,23 +12,13 @@ GenerateOtp.addEventListener("click",(el)=>{
     
     if(Email.value && Password.value && Name.value){
 
-        resultdiv.innerHTML=`<div class="popup-container">
-        <div class="popup">
-          <div class="popup-content">
-            <h2 style=" font-weight: 600; color:green;  font-family:'Poppins', sans-serif ;">Wait for while...!</h2>
-            <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">It may be take a time.</p>
-            <button style=" font-weight: 500;   font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
-          </div>
-        </div>
+        resultdiv.innerHTML=`<div class="loading">
+        <div class="loading__spinner"></div>
+        <div style="font-weight:500;"class="loading__text">Verifying...</div>
       </div>`
 
       
-      closebtn=document.querySelector(".popup button")
     
-      closebtn.addEventListener("click",()=>{
-          resultdiv.innerHTML=""
-      })
-
 
         let payload={
             name:Name.value,
@@ -132,21 +122,12 @@ VerifyOtp.addEventListener("click",()=>{
           }
 
         
-        resultdiv.innerHTML=`<div class="popup-container">
-    <div class="popup">
-      <div class="popup-content">
-        <h2 style=" font-weight: 600; color:green;  font-family:'Poppins', sans-serif ;">Wait for while...!</h2>
-        <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">It may be take a time.</p>
-        <button style=" font-weight: 500;   font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
-      </div>
-    </div>
-  </div>`
+        resultdiv.innerHTML=`<div class="loading">
+        <div class="loading__spinner"></div>
+        <div style="font-weight:500;"class="loading__text">Verifying...</div>
+      </div>`
 
-  closebtn=document.querySelector(".popup button")
-
-  closebtn.addEventListener("click",()=>{
-      resultdiv.innerHTML=""
-  })
+ 
 
  
     fetch("http://localhost:469/users/update",{
@@ -193,6 +174,21 @@ VerifyOtp.addEventListener("click",()=>{
               </div>
             </div>
           </div>`
+          closebtn=document.querySelector(".popup button")
+
+          closebtn.addEventListener("click",()=>{
+              resultdiv.innerHTML=""
+
+              resultdiv.innerHTML=`<div class="loading">
+              <div class="loading__spinner"></div>
+              <div style="font-weight:500;"class="loading__text">Data Saving...</div>
+            </div>`
+            setTimeout(()=>{
+                window.location.href="../index.html"
+            },4000)
+  
+              
+          })
 
         }
 
@@ -201,7 +197,7 @@ VerifyOtp.addEventListener("click",()=>{
         closebtn.addEventListener("click",()=>{
             resultdiv.innerHTML=""
 
-            window.location.href="../index.html"
+            
         })
   
 

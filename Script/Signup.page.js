@@ -20,21 +20,12 @@ RegisterButton.addEventListener("click", (el) => {
 
         }
 
-        result.innerHTML = `<div class="popup-container">
-        <div class="popup">
-          <div class="popup-content">
-            <h2 style=" font-weight: 600; color:green;  font-family:'Poppins', sans-serif ;">Wait...!</h2>
-            <p style=" font-weight: 500; color:black;  font-family:'Poppins', sans-serif ;">It may be take time a for OTP.</p>
-            <button style=" font-weight: 500;   font-family:'Poppins', sans-serif ;" class="close-btn">Close</button>
-          </div>
-        </div>
+        result.innerHTML = `<div class="loading">
+        <div class="loading__spinner"></div>
+        <div style="font-weight:500;"class="loading__text">Verifying...</div>
       </div>`
 
-      closebtn=document.querySelector(".popup button")
-    
-      closebtn.addEventListener("click",()=>{
-          result.innerHTML=""
-      })
+      
 
         console.log(JSON.stringify(payload))
 
@@ -75,6 +66,7 @@ RegisterButton.addEventListener("click", (el) => {
       closebtn=document.querySelector(".popup button")
     
       closebtn.addEventListener("click",()=>{
+        
           result.innerHTML=""
       })
 
@@ -173,6 +165,24 @@ otpVerifybutton.addEventListener("click",()=>{
                       </div>
                     </div>
                   </div>`
+
+                  closebtn=document.querySelector(".popup button")
+    
+      closebtn.addEventListener("click",()=>{
+        
+          result.innerHTML=`<div class="loading">
+          <div class="loading__spinner"></div>
+          <div style="font-weight:500;"class="loading__text">Saving...</div>
+        </div>`
+
+        setTimeout(()=>{
+            window.location.href="../index.html"
+        },4000)
+
+      })
+
+
+               
 
                 }else if(res["message"]=="OTP is Wrong, Please try again"){
 
