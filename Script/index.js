@@ -50,6 +50,19 @@ function render(res){
     
       closebtn.addEventListener("click",()=>{
           logindiv.innerHTML=""
+
+          logindiv.innerHTML=`<div class="loading">
+          <div class="loading__spinner"></div>
+          <div style="font-weight:500;" class="loading__text">Loading...</div>
+        </div>`
+
+       
+            setTimeout(function() {
+       
+                window.location.href="./HTML/Home.page.html"
+
+                 }, 4000);
+  
       })
 
     }else{
