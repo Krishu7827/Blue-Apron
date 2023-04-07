@@ -26,7 +26,7 @@ GenerateOtp.addEventListener("click",(el)=>{
             password:Password.value
         }
 
-        fetch("http://localhost:469/users/updateVerify", {
+        fetch("https://adorable-boa-shawl.cyclic.app/users/updateVerify", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -130,7 +130,7 @@ VerifyOtp.addEventListener("click",()=>{
  
 
  
-    fetch("http://localhost:469/users/update",{
+    fetch("https://adorable-boa-shawl.cyclic.app/users/update",{
         method: "PATCH",
         headers:{
             "Content-type":"application/json"
