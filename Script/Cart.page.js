@@ -120,7 +120,7 @@ order.addEventListener("click", function () {
         <div class="loading__spinner"></div>
         <div style="font-weight:500;"class="loading__text">Loading...</div>
       </div>`
-
+console.log()
         setTimeout(() => {
             window.location.href = "../HTML/Payment.page.html"
         }, 3000)
