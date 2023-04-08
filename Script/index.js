@@ -12,7 +12,7 @@ submitButton.addEventListener("click", (el) => {
     }
     console.log(payload)
 
-    fetch("http://localhost:469/users/login",{
+    fetch("https://adorable-boa-shawl.cyclic.app/users/login",{
         method: "POST",
         headers:{
             "Content-type":"application/json"
@@ -22,7 +22,7 @@ submitButton.addEventListener("click", (el) => {
     .then(res=>{
         render(res)
         console.log(res)
-        localStorage.setItem("token",res.token)
+        localStorage.setItem("token",res.accesToken)
     })
     .catch(err=>console.log(err))
 

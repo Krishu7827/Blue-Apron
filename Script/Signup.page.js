@@ -30,7 +30,7 @@ RegisterButton.addEventListener("click", (el) => {
         console.log(JSON.stringify(payload))
 
 
-        fetch("http://localhost:469/users/verifyEmail", {
+        fetch("https://adorable-boa-shawl.cyclic.app/users/verifyEmail", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -145,7 +145,7 @@ otpVerifybutton.addEventListener("click",()=>{
             OTP:Otp.value
         }
 
-        fetch("http://localhost:469/users/register", {
+        fetch("https://adorable-boa-shawl.cyclic.app/users/register", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -172,7 +172,7 @@ otpVerifybutton.addEventListener("click",()=>{
         
           result.innerHTML=`<div class="loading">
           <div class="loading__spinner"></div>
-          <div style="font-weight:500;"class="loading__text">Saving...</div>
+          <div style="font-weight:500;"class="loading__text">data Saving...</div>
         </div>`
 
         setTimeout(()=>{

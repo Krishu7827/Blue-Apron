@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="../CSS/forgotPassword.page.css">
+    <title>Cart Page</title>
+    <link rel="stylesheet" href="../CSS/Cart.page.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
@@ -32,79 +32,105 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="../HTML/Home.page.html">Home</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link active" href="#">On the Menu</a>
+                <a class="nav-link active" href="../HTML/Veg.page.html">On the Menu</a>
+              </li>
+
+             
+
+              <li class="nav-item ">
+                <a class="nav-link active" href="#">Wine</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link active"   href="#">Wine</a>
+                <a class="nav-link active" href="../HTML/Markets.page.html">Markets</a>
               </li>
-
-              <li class="nav-item ">
-                <a class="nav-link active" href="#">Gifts</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Markets</a>
-              </li>
-
+           
             </ul>
-            <form class="d-flex">
-                <button class="btn btn-outline-success" type="submit" ><a style="color: black; text-decoration: none;" href="../HTML/Signup.page.html">SignUp</a></button>
-              <button class="btn btn-outline-success" type="submit"><a style="color: black; text-decoration: none;" href="../index.html">Login</a></button>
-            </form>
+            
           </div>
         </div>
       </nav>
+      <br>
+      <br>
+      <!-------------------------Cart-------------------->
+    
 
-      <div class="login-Success">
-
+      <div style="margin-top: 30px;">
+        <h2 style="text-align: center; font-weight: 700;">Your Order <span id="items">0</span></h2>
       </div>
-      <section class="ftco-section" style="margin-top: 0px;">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-6 col-lg-5">
-					<div class="login-wrap p-4 p-md-5">
-		      	<div class="icon d-flex align-items-center justify-content-center">
-                    <span class="fa fa-user-o"></span>
-		      	</div>
-		      	<h3 class="text-center mb-4">Forgot Password?</h3>
-						<form action="#" class="login-form">
-                            <div class="form-group">
-                                <input type="text" class="form-control rounded-left" id="Name" placeholder="Enter Name" required>
-                            </div>
 
-		      		<div class="form-group">
-		      			<input type="text" class="form-control rounded-left" id="Email" placeholder="Enter Email" required>
-		      		</div>
-
-                      <div class="form-group">
-                        <input type="password" class="form-control rounded-left" id="Password" placeholder="New Password" required>
-                    </div>
-
-                      <button type="button" class="btn btn-success btn-success"
-                      style=" justify-content: left; margin-bottom: 50px; font-family: 'Poppins', sans-serif; font-weight: 400; font-size: small;"
-                      id="GenerateOtp">Generate OTP</button>
-
-	            <div class="form-group d-flex">
-	              <input type="password" class="form-control rounded-left" id="OTP" placeholder="Enter OTP" required>
-	            </div>
-	           
-	            <div class="form-group">
-	            	<button type="submit" id="VerifyOtp" class="btn btn-primary rounded submit p-3 px-5">Reset Password</button>
-	          </form>
-	        </div>
-				</div>
-			</div>
-		</div>
-
-        <div class="result">
+      <div class="main">
+        <div class="cont">
 
         </div>
-	</section>
-    
+
+        <div class="order">
+            <h5>Order Summary</h5>
+           <div>
+            <p>Payable amount</p>
+            <p><span id="total">0</span></p>
+           </div>
+
+           <div class="xyz">
+                 <div>
+                    <img src="../Screenshot 2023-03-29 163753.png" alt="">
+                 </div>
+                 <div>
+                    <h3>Enjoy ₹ Off Today</h3>
+                    <p>On Your first purchase <br>
+                    with FAMOUSLY YOUR REWARD
+                    </p>
+                 </div>
+           </div>
+            <div class="pay">
+               <button style="cursor: pointer;" value="ok" id="Order">Order Place</button>
+            </div>
+        </div>
+      </div>
+<hr style="border: 1px solid;">
+      <div class="voucher">
+
+         <div class="voucher1">
+          
+                <h4>Apply a Promo Code </h4>
+           <br>
+           
+       <input type="text" placeholder="Promo Code" id="code">
+       <button id="apply">APPLY +</button>
+      
+         </div>
+
+         <div>
+        <h3>Have Reward Cash or Extras</h3>
+        <br>
+        
+        <p>Sign in to use Reward Cash and Extras, plus earn up to 444 points on today's order, and get FREE SHIPPING, no minimum.</p>
+        
+      
+         </div>
+      </div>
+
+
+      <div class="Loading">
+
+      </div>
+
+
+
+
+
+
+
+      <!------------------------------Cart-------------------------------->
+
+      
+      <br>
+      <br>
+       <br>
+      
 
     <div class="social-media-container">
       
@@ -120,9 +146,9 @@
 
        <div class="social-media" >
         <h3>FOLLOW US</h3>
-        <i class="fa-brands fa-facebook fa-2xl" href="" style="margin-right: 60px; "></i>
+        <i class="fa-brands fa-facebook fa-2xl" href="" style="margin-right: 60px; cursor: pointer;"></i>
         <i class="fa-brands fa-twitter fa-2xl" href=""></i>
-        <i class="fa-brands fa-instagram fa-2xl" href="" style="margin-left: 60px;"></i>
+        <i class="fa-brands fa-instagram fa-2xl" href="" style="margin-left: 60px; cursor: pointer;"></i>
        </div>
     </div>
 
@@ -200,8 +226,8 @@
                 <p><a href="">Blog</a></p>
                 <p><a href="">Cookbook</a></p>
              </div>
-             <i class="fa-brands fa-google-play fa-2xl" style="margin-right: 40px;"></i>
-             <i class="fa-brands fa-apple fa-2xl"></i>
+             <i class="fa-brands fa-google-play fa-2xl" style="margin-right: 40px; cursor: pointer;"></i>
+             <i class="fa-brands fa-apple fa-2xl" style="cursor: pointer;"></i>
         </div>
 
     </div>
@@ -209,5 +235,5 @@
 
      
 </body>
-<script src="../Script/forgotPassword.page.js"></script>
+<script src="../Script/Cart.page.js"></script>
 </html>
