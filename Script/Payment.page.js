@@ -54,7 +54,7 @@ debitCard.addEventListener("click", () => {
                     Address: address.value,
                     Method: `debit card(online)`
                 }
-                fetch("https://adorable-boa-shawl.cyclic.app/Payment/add", {
+                fetch("https://hilarious-erin-katydid.cyclic.app/Payment/add", {
                     method: "POST",
                     headers: {
                         "Content-type": "application/json",
@@ -194,7 +194,7 @@ cod.addEventListener("click", () => {
             Address: address.value,
             Method: `Cash On Delivery`
         }
-        fetch("https://adorable-boa-shawl.cyclic.app/Payment/add", {
+        fetch("https://hilarious-erin-katydid.cyclic.app/Payment/add", {
             method: "POST",
             headers: {
                 "Content-type": "application/json",

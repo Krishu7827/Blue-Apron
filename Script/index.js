@@ -12,7 +12,7 @@ submitButton.addEventListener("click", (el) => {
     }
     console.log(payload)
 
-    fetch("https://adorable-boa-shawl.cyclic.app/users/login",{
+    fetch("https://hilarious-erin-katydid.cyclic.app/users/login",{
         method: "POST",
         headers:{
             "Content-type":"application/json"

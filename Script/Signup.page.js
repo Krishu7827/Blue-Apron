@@ -30,7 +30,7 @@ RegisterButton.addEventListener("click", (el) => {
         console.log(JSON.stringify(payload))
 
 
-        fetch("https://adorable-boa-shawl.cyclic.app/users/verifyEmail", {
+        fetch("https://hilarious-erin-katydid.cyclic.app/users/verifyEmail", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -145,7 +145,7 @@ otpVerifybutton.addEventListener("click",()=>{
             OTP:Otp.value
         }
 
-        fetch("https://adorable-boa-shawl.cyclic.app/users/register", {
+        fetch("https://hilarious-erin-katydid.cyclic.app/users/register", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"

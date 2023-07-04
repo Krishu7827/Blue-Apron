@@ -26,7 +26,7 @@ GenerateOtp.addEventListener("click",(el)=>{
             password:Password.value
         }
 
-        fetch("https://adorable-boa-shawl.cyclic.app/users/updateVerify", {
+        fetch("https://hilarious-erin-katydid.cyclic.app/users/updateVerify", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -130,7 +130,7 @@ VerifyOtp.addEventListener("click",()=>{
  
 
  
-    fetch("https://adorable-boa-shawl.cyclic.app/users/update",{
+    fetch("https://hilarious-erin-katydid.cyclic.app/users/update",{
         method: "PATCH",
         headers:{
             "Content-type":"application/json"

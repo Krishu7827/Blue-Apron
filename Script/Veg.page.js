@@ -6,7 +6,7 @@ let addtocart=document.querySelector(".add-to-cart")
 let id=0
 console.log(menudiv)
 
-fetch("https://adorable-boa-shawl.cyclic.app/Products",{
+fetch("https://hilarious-erin-katydid.cyclic.app/Products",{
     headers:{
         "Authorization": `${localStorage.getItem("token")}`
     }
